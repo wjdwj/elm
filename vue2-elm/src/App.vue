@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<transition name="router-fade" mode="out-in">
-			<keep-alive>
-			    <router-view v-if="$route.meta.keepAlive"></router-view>
+			<keep-alive>      //
+			    <router-view v-if="$route.meta.keepAlive"></router-view>   //这里是会被缓存的视图组件
 			</keep-alive>
     	</transition>
     	<transition name="router-fade" mode="out-in">
@@ -10,12 +10,12 @@
 		</transition>
     </div>
 </template>
-
+	// import svgIcon from './components/common/svg.vue';
 <script>
   	export default {
     	components:{
-			
-		}
+			// svgIcon
+		},
   	}
 
 </script>

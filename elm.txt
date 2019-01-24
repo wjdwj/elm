@@ -1,0 +1,27 @@
+keep-alive是vue内置的组件   可以使被包含的组件暴保留状态，避免重复渲染    
+	include - 字符串或正则表达，只有匹配的组件会被缓存
+	exclude - 字符串或正则表达式，任何匹配的组件都不会被缓存
+例如：// 组件 a
+	// 组件 a
+	export default {
+	  name: 'a',
+	  data () {
+ 	   return {}
+  	  }
+	}
+
+	<keep-alive include="a">
+  	                <component><!-- name 为 a 的组件将被缓存！ --></component>
+	</keep-alive>可以保留它的状态或避免重新渲染
+	<keep-alive exclude="a">
+		<component><!-- 除了 name 为 a 的组件都将被缓存！ --></component>
+	</keep-alive>可以保留它的状态或避免重新渲染
+
+	增加router.meta属性
+	 meta: {
+      	          keepAlive: true // 需要被缓存
+   	 }
+
+
+2、signin-up=‘home’的用法 
+    		是当前组件的一个属性prpos，一般用来传输给子组件使用的 home一般是data或是function（属于父子通信的方法）
