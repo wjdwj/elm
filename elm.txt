@@ -19,9 +19,14 @@ keep-alive是vue内置的组件   可以使被包含的组件暴保留状态，避免重复渲染
 
 	增加router.meta属性
 	 meta: {
-      	          keepAlive: true // 需要被缓存
+      	          keepAlive: true // 需要被缓存      如果是false的话，不需要被缓存
    	 }
-
 
 2、signin-up=‘home’的用法 
     		是当前组件的一个属性prpos，一般用来传输给子组件使用的 home一般是data或是function（属于父子通信的方法）
+3、polyline标签用来创建仅包含直线的形状
+4、svg 修改image的xmlns:xlink及图片的显隐
+5、@click.prevent   ——>阻止事件的默认行为
+6、XLink 文档命名空间被声明于文档的顶部   xlink:type="simple" 可创建简单的类似 HTML 的链接。您也可以规定更多的复杂的链接（多方向链接），但是目前，我们仅使用简易链接。
+     xlink:href 属性规定了要链接的 URL，而 xlink:show 属性规定了在何处打开链接。xlink:show="new" 意味着链接（在此例中，是一幅图像）会在新窗口打开。
+7、vue自定义指令v-load-more实现上拉加载
