@@ -113,7 +113,7 @@ export default {
         @include ct;
     }
     .city_nav{
-        padding-top: 0.7rem;
+        padding-top: 2rem;
         border-top: 1px solid $bc;
         background-color: #fff;
         margin-bottom: 0.6rem;

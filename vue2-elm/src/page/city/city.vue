@@ -115,7 +115,7 @@
 <style lang="scss" scoped>
     @import 'src/style/mixin';
     .city_container{
-        padding-top: 0.7rem;
+        padding-top: 2rem;
     }
     .change_city{
         right: 0.4rem;

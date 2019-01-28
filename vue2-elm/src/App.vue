@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<transition name="router-fade" mode="out-in">
-			<keep-alive>      //
+			<keep-alive> 
 			    <router-view v-if="$route.meta.keepAlive"></router-view>   //这里是会被缓存的视图组件
 			</keep-alive>
     	</transition>

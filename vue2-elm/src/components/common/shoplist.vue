@@ -100,7 +100,7 @@ export default {
 		]),
 	},
 	updated(){
-		// console.log(this.supportIds, this.sortByType)
+		console.log(this.supportIds, this.sortByType)
 	},
 	methods: {
 		async initData(){

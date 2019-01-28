@@ -2,7 +2,12 @@ import App from '../App'
 
 const home = r => require.ensure([], () => r(require('../page/home/home')), 'home')
 const city = r => require.ensure([], () => r(require('../page/city/city')), 'city')
+const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
 const msite = r => require.ensure([], () => r(require('../page/msite/msite')), 'msite')
+const search = r => require.ensure([], () => r(require('../page/search/search')), 'search')
+const food = r => require.ensure([], () => r(require('../page/food/food')), 'food')
+
+const shop = r => require.ensure([], () => r(require('../page/shop/shop')), 'shop')
 
 
 export default [{
@@ -19,6 +24,11 @@ export default [{
             path: '/home',
             component: home
         },
+          //登录注册页
+          {
+            path: '/login',
+            component: login
+        },
         //当前选择城市页
         {
             path: '/city/:cityid',
@@ -29,6 +39,19 @@ export default [{
             path: '/msite',
             component: msite,
             meta: { keepAlive: true },
-        },   
+        },  
+        {
+            path: '/food',
+            component: food
+        },
+        //搜索页
+        {
+            path: '/search/:geohash',
+            component: search
+        },
+        {
+            path: '/shop',
+            component: shop
+        }, 
     ]
 }]
