@@ -6,10 +6,18 @@ const login = r => require.ensure([], () => r(require('../page/login/login')), '
 const msite = r => require.ensure([], () => r(require('../page/msite/msite')), 'msite')
 const search = r => require.ensure([], () => r(require('../page/search/search')), 'search')
 const food = r => require.ensure([], () => r(require('../page/food/food')), 'food')
-
 const shop = r => require.ensure([], () => r(require('../page/shop/shop')), 'shop')
-
-
+const foodDetail = r => require.ensure([], () => r(require('../page/shop/children/foodDetail')), 'foodDetail')
+const shopDetail = r => require.ensure([], () => r(require('../page/shop/children/shopDetail')), 'shopDetail')
+const shopSafe = r => require.ensure([], () => r(require('../page/shop/children/children/shopSafe')), 'shopSafe')
+const profile = r => require.ensure([], () => r(require('../page/profile/profile')), 'profile')
+const info = r => require.ensure([], () => r(require('../page/profile/children/info')), 'info')
+const setusername = r => require.ensure([], () => r(require('../page/profile/children/children/setusername')), 'setusername')
+const address = r => require.ensure([], () => r(require('../page/profile/children/children/address')), 'address')
+const add = r => require.ensure([], () => r(require('../page/profile/children/children/children/add')), 'add')
+const addDetail = r => require.ensure([], () => r(require('../page/profile/children/children/children/children/addDetail')), 'addDetail')
+const points = r => require.ensure([], () => r(require('../page/points/points')), 'points')
+const pointsDetail = r => require.ensure([], () => r(require('../page/points/children/detail')), 'pointsDetail')
 export default [{
     path: '/',
     component: App, //顶层路由，对应index.html
@@ -49,9 +57,54 @@ export default [{
             path: '/search/:geohash',
             component: search
         },
-        {
+          //商铺详情页
+          {
             path: '/shop',
-            component: shop
-        }, 
+            component: shop,
+            children: [{
+                path: 'foodDetail', //食品详情页
+                component: foodDetail,
+            }, {
+                path: 'shopDetail', //商铺详情页
+                component: shopDetail,
+                children: [{
+                    path: 'shopSafe', //商铺安全认证页
+                    component: shopSafe,
+                }, ]
+            }]
+        },
+        //个人信息页
+        {
+            path: '/profile',
+            component: profile,
+            children: [{
+                path: 'info', //个人信息详情页
+                component: info,
+                children: [{
+                    path: 'setusername',
+                    component: setusername,
+                },{
+                    path: 'address',
+                    component: address,     //编辑地址
+                    children:[{
+                        path:'add',
+                        component:add,
+                        children:[{
+                            path:'addDetail',
+                            component:addDetail
+                        }]
+                    }]
+                }]
+             }]
+        },
+        //我的积分页
+        {
+            path: 'points',
+            component: points,
+            children: [{
+                path: 'detail', //积分说明
+                component: pointsDetail,
+            }, ]
+        },
     ]
 }]

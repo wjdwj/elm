@@ -200,7 +200,6 @@
                 <section class="rating_container" id="ratingContainer" v-show="changeShowType =='rating'">
                     <section v-load-more="loaderMoreRating" type="2">
                         <section>
-
                             <header class="rating_header">
                                 <section class="rating_header_left">
                                     <p>{{shopDetailData.rating}}</p>
@@ -294,10 +293,10 @@
             <p class="show_delete_tip" v-if="showDeleteTip">多规格商品只能去购物车删除哦</p>
         </transition>
         <transition
-        appear
-        @after-appear = 'afterEnter'
-        @before-appear="beforeEnter"
-        v-for="(item,index) in showMoveDot"
+            appear
+            @after-appear = 'afterEnter'
+            @before-appear="beforeEnter"
+            v-for="(item,index) in showMoveDot"
         >
             <span class="move_dot" v-if="item">
                 <svg class="move_liner">
@@ -367,7 +366,6 @@
         },
         created(){
             this.geohash = this.$route.query.geohash;
-            console.log(this.geohash)
             this.shopId = this.$route.query.id;
             this.INIT_BUYCART();
         },
@@ -524,6 +522,7 @@
                 this.totalPrice = 0;
                 this.cartFoodList = [];
                 this.menuList.forEach((item, index) => {
+                    console.log(item)
                     if (this.shopCart&&this.shopCart[item.foods[0].category_id]) {
                         let num = 0;
                         Object.keys(this.shopCart[item.foods[0].category_id]).forEach(itemid => {
@@ -533,6 +532,7 @@
                                 if (item.type == 1) {
                                     this.totalPrice += foodItem.num*foodItem.price;
                                     if (foodItem.num > 0) {
+                                        console.log(this.cartFoodList)
                                         this.cartFoodList[cartFoodNum] = {};
                                         this.cartFoodList[cartFoodNum].category_id = item.foods[0].category_id;
                                         this.cartFoodList[cartFoodNum].item_id = itemid;
