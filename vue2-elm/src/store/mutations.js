@@ -192,6 +192,7 @@ export default {
 		sig
 	}) {
 		state.cart_id = cart_id;
+		console.log(state.cart_id)
 		state.sig = sig;
 	},
 	//保存下单参数，用户验证页面调用
